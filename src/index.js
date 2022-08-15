@@ -26,20 +26,23 @@ const createCard = country => {
 };
 
 const createCardValue = country => {
-  const countryValue = country
-    .map(({ flags, name, capital, population, languages }) => {
-      return `<div class="country_card">
+  const countryValue = country.map(
+    ({
+      flags,
+      name,
+      capital,
+      population,
+      languages,
+    }) => `<div class="country_card">
           <img src="${flags.svg}" alt="${name.official}" width="40" height="40">
           <h1 class="country_name">Country: <span>${name.official}</span></h1>
-          <p class="country_capital">Capital: <span>${capital}</span></p>
-          <p class="country_population">Population: <span>${population}</span></p>
-          <p class="country_languages">Languages: <span>${Object.values(
-            languages.join(', ')
+          <p class="country_info">Capital: <span>${capital}</span></p>
+          <p class="country_info">Population: <span>${population}</span></p>
+          <p class="country_info">Languages: <span>${Object.values(
+            languages
           )}</span>
-          </p>
-  </div>`;
-    })
-    .join('');
+          </p></div>`
+  );
   countryInfo.innerHTML = countryValue;
 };
 
